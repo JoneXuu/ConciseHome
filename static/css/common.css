@@ -1,0 +1,77 @@
+
+body{
+  font-size: 14px;
+}
+
+.globalContent{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../image/globalBackground.jpeg');
+  background-size: 100% auto;  
+  background-repeat: no-repeat;  
+  background-color: #eff1ee;
+}
+.globalMiddleCont{
+  width: 100vw;
+}
+
+.engineArea{
+  width: 100%;
+  margin-bottom:30px;
+}
+.engineArea .oneEngine{
+  margin-right: var(--gMargin);
+  cursor: pointer;
+
+  box-shadow: inset -3px -4px 4px 0px #dadada;
+  border-radius: 50%;
+  padding: 3px;
+}
+.engineArea .oneEngine .logoImg {
+  border-radius: 50%;
+  border: 2px solid var(--colGray);
+  width: 50px;
+  height: 50px;
+}
+.engineArea .active {
+  box-shadow: inset -3px -4px 4px 0px #3b823f;
+  color: var(--colTheme);
+}
+/* .engineArea .active .logoImg {
+  box-shadow: 1px 3px 12px 0px #719673;
+  border-color: var(--colTheme);
+} */
+
+.mianSearchArea{
+  width: 100%;
+}
+
+.sInput{
+  padding: 0 15px;
+  line-height: 2;
+  font-size: 18px;
+  border:2px solid var(--colTheme);
+  border-radius: 15px 0 0 0;
+  min-width: 458px;
+}
+::-webkit-input-placeholder {
+  color: #999;
+  font-size: 16px;
+}
+
+::-moz-placeholder {
+  color: #999;
+  font-size: 16px;
+}
+
+:-ms-input-placeholder {
+  color: #999;
+  font-size: 16px;
+}
+.sBtn{
+  border-radius: 0 0 15px 0;
+}
+
+.noticeArea{
+   
+}

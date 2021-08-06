@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/x-icon" href="./static/image/logo.png">
+  <meta name="viewport" content="width=device-width,initial=1.0,user-scalable=0">
+  <link rel="stylesheet" type="text/css" href="./static/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/base.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/common.css">
+  <script type="text/javascript" src="./static/js/global.js"></script>
+  <title>极简搜索</title>
+</head>
+
+<body>
+  <!-- <div class="noticeArea">
+    <div class="noticeCont">
+      这是一条正经通知
+    </div>
+  </div> -->
+  <div class="globalContent JFlex">
+    <header></header>
+    <session class="globalMiddleCont JFlex">
+      <!-- 搜索引擎切换区域 -->
+      <div class="engineArea JFlex" id="engineArea">
+        <div class="oneEngine" name="default" onclick="changeType(this)">
+          <img class="logoImg" src="./static/image/logo.png" />
+        </div>
+        <div class="oneEngine" name="baidu" onclick="changeType(this)">
+          <img class="logoImg" src="https://www.baidu.com/favicon.ico" />
+        </div>
+        <div class="oneEngine" name="csdn" onclick="changeType(this)">
+          <img class="logoImg" src="https://g.csdnimg.cn/static/logo/favicon32.ico" />
+        </div>
+        <div class="oneEngine" name="zhihu" onclick="changeType(this)">
+          <img class="logoImg" src="https://static.zhihu.com/heifetz/favicon.ico" />
+        </div>
+        <div class="oneEngine" name="sifou" onclick="changeType(this)">
+          <img class="logoImg" src="https://cdn.segmentfault.com/v-605daa96/global/img/touch-icon.png" />
+        </div>
+      </div>
+      <!-- 主要的搜索框 -->
+      <div class="mianSearchArea JFlex">
+        <input class="sInput" oninput="inputListener(this)"  id="mianSearchInput" placeholder="输入关键字" />
+        <div class="JBtn sBtn bgGradualTheme" size="xl" onclick="toSearch()">搜索</div>
+      </div>
+
+    </session>
+  </div>
+</body>
+
+</html>
