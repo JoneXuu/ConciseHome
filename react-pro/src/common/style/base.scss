@@ -1,0 +1,77 @@
+:root {
+  /* 83a4d4 → #b6fbff */
+  --colTheme: #3dd03b;
+  --colBlue: #1890ff;
+  --colGradualTheme: linear-gradient(to bottom, var(--colTheme), #63d8b7);
+  --gMargin: 10px;
+  --gMarginXL: 20px;
+  --gRadius: 4px;
+  --colGray: #e4e4e4;
+  --colBlack: #333333;
+  --colWhite: #ffffff;
+}
+*{
+  box-sizing: border-box;
+  user-select: none;
+}
+
+input:focus {
+  outline: none;
+}
+.bgTheme{
+  background-color: var(--colTheme);
+}
+.bgGradualTheme {
+  background: var(--colGradualTheme);
+}
+.gHover {
+  opacity: 0.8;
+  transform: scale3d(0.95, 0.95, 1);
+}
+.JBtn {
+  position: relative;
+  display: block;
+  padding: 0 var(--gMargin);
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 2;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--gRadius);
+  overflow: hidden;
+  color: var(--colBlack);
+  background-color: var(--colGray);
+  cursor: pointer;
+  &:active {
+    opacity: 0.8;
+    transform: scale3d(0.95, 0.95, 1);
+  }
+  &.round {
+    border-radius: 50%;
+  }
+  &[class*='bg'] {
+    color: var(--colWhite);
+  }
+  &[data-size='lg'] {
+    font-size: 18px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  &[data-size='xl'] {
+    font-size: 20px;
+    padding-right: 40px;
+    padding-left: 30px;
+  }
+}
+.JFlex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  &.justStart {
+    justify-content: flex-start;
+  }
+  &.justBet {
+    justify-content: space-between;
+  }
+}

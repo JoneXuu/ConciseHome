@@ -35,8 +35,8 @@ function inputListener(event) { // 输入监听
 }
 function toSearch() { // 确认搜索
   if(keyValue){
-    // location.href = baseEngine + keyValue;
-    window.open(baseEngine + keyValue);
+    location.href = baseEngine + keyValue;
+    // window.open(baseEngine + keyValue);
   } else {
     console.error('搜索内容不能为空');
   }
@@ -58,4 +58,8 @@ function changeType(selDom) {
     }
   }
 
+}
+
+function uploadChange(e) {
+  console.log(e.files[0]);
 }

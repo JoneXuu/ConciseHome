@@ -19,8 +19,11 @@
     </div>
   </div> -->
   <div class="globalContent JFlex">
-    <header></header>
-    <session class="globalMiddleCont JFlex">
+    <header>
+      <!-- <input  type="file"  accept=".mp4,.3gp" onchange="uploadChange(this)" /> -->
+
+    </header>
+    <section class="globalMiddleCont JFlex">
       <!-- 搜索引擎切换区域 -->
       <div class="engineArea JFlex" id="engineArea">
         <div class="oneEngine" name="default" onclick="changeType(this)">
@@ -44,8 +47,8 @@
         <input class="sInput" oninput="inputListener(this)"  id="mianSearchInput" placeholder="输入关键字" />
         <div class="JBtn sBtn bgGradualTheme" size="xl" onclick="toSearch()">搜索</div>
       </div>
-
-    </session>
+	
+    </section>
   </div>
 </body>
 
