@@ -1,0 +1,31 @@
+
+.historyArea{
+  position: relative;
+  padding: var(--gMarginXL) var(--gMargin);
+  background-color: #ffffff;
+  min-width: 300px;
+  .historyTitle{
+    font-weight: bold;
+  }
+  .ant-timeline-item{
+    padding-bottom:10px;
+  }
+  .oneHistory{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    .timeTxt{ 
+      color:var(--colBlue) ;  
+    }
+    .titleTxt{
+      margin:0 var(--gMargin) ;     
+      flex: 1;
+      text-align: right;
+    }
+    &:hover{
+      color:var(--colBlue) ;  
+    }
+  }
+}

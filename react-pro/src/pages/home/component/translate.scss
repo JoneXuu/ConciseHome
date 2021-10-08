@@ -1,0 +1,13 @@
+.translateArea{
+  width: 388px;
+  .ant-input-affix-wrapper{
+    width: calc(100% - var(--gMargin) - 65px);
+  }
+  .resultInput{
+    margin-top:var(--gMargin);
+    width: 100%;
+  }
+  .ant-btn{
+    margin-left:var(--gMargin);
+  }
+}

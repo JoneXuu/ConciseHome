@@ -16,9 +16,9 @@ body {
   width: 100vw;
   position: relative;
 }
-.floatContent{
+.topFloatContent{
   position: absolute;
-  left: 10px;
+  left: 0;
   top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -26,10 +26,24 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 6px 2px #e2e2e2;
   }
+  
+  >*{
+   margin-left: var(--gMargin);
+  }
 }
+.bottomFloatContent{
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  >*{
+   margin-left: var(--gMargin);
+  }
+}
+
 .usualWebArea{
-  position: relative;
-  margin-left: var(--gMargin);
+  // position: relative;
   width: 401px;
 
   // height: fit-content;
@@ -51,36 +65,6 @@ body {
     }
   }
 }
-.historyArea{
-  position: relative;
-  padding: var(--gMarginXL) var(--gMargin);
-  background-color: #ffffff;
-  min-width: 300px;
-  .historyTitle{
-    font-weight: bold;
-  }
-  .ant-timeline-item{
-    padding-bottom:10px;
-  }
-  .oneHistory{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-    .timeTxt{ 
-      color:var(--colBlue) ;  
-    }
-    .titleTxt{
-      margin:0 var(--gMargin) ;     
-      flex: 1;
-      text-align: right;
-    }
-    &:hover{
-      color:var(--colBlue) ;  
-    }
-  }
-}
 .engineArea {
   width: 100%;
   margin-bottom: 30px;
@@ -88,13 +72,13 @@ body {
   .oneEngine {
     margin-right: var(--gMargin);
     cursor: pointer;
-
-    box-shadow: inset -3px -4px 4px 0px #dadada;
-    border-radius: 50%;
+    // box-shadow: inset -3px -4px 4px 0px #dadada;
+    box-shadow: inset -4px -3px 4px 0px #e3e3c6;    
+    border-radius: 10px;
     padding: 3px;
     transition: all .3s;
     .logoImg {
-      border-radius: 50%;
+      border-radius: inherit;
       border: 2px solid var(--colGray);
       width: 50px;
       height: 50px;
@@ -136,11 +120,9 @@ body {
   }
   .searchBtn {
     border-radius: 0 0 15px 0;
+    letter-spacing: 10px;
   }
 }
 
 
 
-
-
-.noticeArea {}
