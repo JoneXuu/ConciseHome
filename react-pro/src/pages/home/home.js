@@ -4,9 +4,10 @@ import React, { Component} from 'react';
 import { Card, Avatar, Tag} from 'antd';
 // import * as Icon from "@ant-design/icons";
 import { baseData, setStorage, ifStorageSet, notice} from 'common/js/global.js';
+import UsualSite from './component/usualSite.js';
 import History from './component/history.js';
-import Translate from './component/translate';
-
+import Translate from './component/translate'; 
+// import lufei from 'assets/image/lufeiFriendBg.jpg';
 export default class Home extends Component {  // 类名  继承  react组件
   constructor(props) {
     super(props);
@@ -30,9 +31,10 @@ export default class Home extends Component {  // 类名  继承  react组件
     );
 
     // 常用网站面板
-    const UsualWebList = baseData.usualWebsite.map(web =>
+    const UsualWebList = baseData.fixedWebsite.map(web =>
       <Card.Grid className="oneWeb JFlex " key={web.url} onClick={ this.toUrl.bind(this,web.url)}>
-        <Avatar size="large" src={web.logo} style={web.style}>{web.alt}</Avatar>
+        <Avatar src={web.logo} style={web.style}>{web.alt}</Avatar>
+        {/* size="large" */}
         <div className="webName">{web.text}</div>
       </Card.Grid>
     );
@@ -44,27 +46,13 @@ export default class Home extends Component {  // 类名  继承  react组件
         </header>
         <div className="topFloatContent">
           <History toHistory={this.toHistory} onRef={(ref) => { this.$Child = ref }} />
-          <Card size="small" title="Common WebSite" className="usualWebArea">
+          <Card size="small" title="常用站点" className="usualWebArea">
             {UsualWebList}
             {/* <Card.Grid className="oneWeb JFlex " onClick={this.addNewUsual}>
               <PlusOutlined />
             </Card.Grid> */}
           </Card>
-          
-          <div>
-            <Tag color="magenta">固定</Tag>
-            <Tag color="red">记事本</Tag>
-            <Tag color="volcano">工作任务</Tag>
-            {/* <Tag color="orange">orange</Tag>
-            <Tag color="gold">gold</Tag>
-            <Tag color="lime">lime</Tag>
-            <Tag color="green">green</Tag>
-            <Tag color="cyan">cyan</Tag>
-            <Tag color="blue">blue</Tag>
-            <Tag color="geekblue">geekblue</Tag>
-            <Tag color="purple">purple</Tag> */}
-          </div>
-          
+          {/* <UsualSite />*/}
         </div>
         
         <section className="globalMiddleCont JFlex">
@@ -80,10 +68,13 @@ export default class Home extends Component {  // 类名  继承  react组件
 
         <div className="bottomFloatContent">
           <Translate />
+          {/* <img src={lufei} style={{ width: 65 + 'vw', position: 'fixed', top: 52+'px' }}></img>
+          <img src={lufei} style={{ width: 65 + 'vw', position: 'fixed', bottom: 0 }}></img> */}
         </div>
       </div>
     )
   }
+
   changeEngine(type) {
     this.setState({
       baseEngine: type

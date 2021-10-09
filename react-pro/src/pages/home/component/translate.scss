@@ -1,13 +1,25 @@
 .translateArea{
   width: 388px;
   .ant-input-affix-wrapper{
-    width: calc(100% - var(--gMargin) - 65px);
-  }
-  .resultInput{
-    margin-top:var(--gMargin);
+    // width: calc(100% - var(--gMargin) - 65px);
     width: 100%;
+    flex: 1;
   }
   .ant-btn{
     margin-left:var(--gMargin);
   }
+
+  .resultInput{
+    width: 100%;
+  }
+  .moreTxt{
+    margin-top:var(--gMargin);
+    font-size: 12px;
+    color: #919090;
+    line-height: 20px;
+    cursor: pointer;
+    width: 100%;
+    text-align: right;
+  }
+  
 }

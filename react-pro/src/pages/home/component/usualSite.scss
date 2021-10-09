@@ -1,0 +1,15 @@
+.usualSiteArea{
+  width: 400px;
+  border: none;
+  background-color: #ffffff;
+  &.timelineStyle{
+    padding: var(--gMargin);
+  }
+  // .ant-collapse-header{
+  //   background: var(--colGradualTheme);
+  // }
+  .ant-tag{
+    margin-bottom: 5px;
+  }
+  
+}

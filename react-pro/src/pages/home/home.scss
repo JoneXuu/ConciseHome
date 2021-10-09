@@ -22,13 +22,11 @@ body {
   top: 10px;
   display: flex;
   flex-wrap: wrap;
-  .usualWebArea,.historyArea{
-    border-radius: 10px;
-    box-shadow: 0px 0px 6px 2px #e2e2e2;
-  }
-  
   >*{
    margin-left: var(--gMargin);
+   height: max-content;
+    box-shadow: 0px 0px 6px 2px #e2e2e2;
+    border-radius: 10px;
   }
 }
 .bottomFloatContent{
@@ -45,16 +43,15 @@ body {
 .usualWebArea{
   // position: relative;
   width: 401px;
-
   // height: fit-content;
   &:hover{
     z-index: 9;
   }
   .oneWeb{
-    padding: 10px 0;
+    padding: 5px 0;
     // flex-direction: column;
     // width: 25%;
-    width: 100px;
+    width: 80px;
     cursor: pointer;
     .webName{
       white-space:nowrap;
@@ -62,6 +59,7 @@ body {
       width: 100%;
       text-align: center;
       max-width: 100px;
+      font-size: 12px;
     }
   }
 }

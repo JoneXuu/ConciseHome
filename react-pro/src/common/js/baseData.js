@@ -1,4 +1,4 @@
-import logo from '../../assets/image/logo.png';
+import logo from 'assets/image/logo.png';
 export const gBaseData = {
   fakeData: {
     '2021-08-23': [{
@@ -29,7 +29,7 @@ export const gBaseData = {
       text: 'react搭建'
     }],
   },
-  engineData : {
+  engineData: {
     'default': {
       url: 'https://kaifa.baidu.com/searchPage?wd=',
       desc: '百度开发者',
@@ -61,7 +61,7 @@ export const gBaseData = {
       img: 'https://img2.baidu.com/it/u=2733887085,1414025318&fm=26&fmt=auto&gp=0.jpg',
     },
   },
-  usualWebsite:[{
+  fixedWebsite: [{
     text: 'angular zorro',
     url: 'https://ng.ant.design/components/table/zh',
     logo: 'https://ng.ant.design/assets/img/logo.svg',
@@ -74,11 +74,11 @@ export const gBaseData = {
     url: 'https://blog.csdn.net/xj932956499',
     logo: 'https://g.csdnimg.cn/static/logo/favicon32.ico',
   }, {
-    text: 'date-fns',
-    url: 'https://blog.csdn.net/fsxxzq521/article/details/85715213',
+    text: '正则在线',
+    url: 'https://c.runoob.com/front-end/854/',
     logo: '',
-    style: { color: '#f56a00', backgroundColor: '#fde3cf' },
-    alt: 'FNS'
+    style: { color: '#7cb305', backgroundColor: '#fcffe6', border: '1px solid #eaff8f'},
+    alt: '正则'
   }, {
     text: 'react antd',
     url: 'https://ant.design/components/icon-cn/',
@@ -86,22 +86,94 @@ export const gBaseData = {
   }, {
     text: '智超Api',
     url: 'http://172.16.1.84:8001/swagger/index.html',
-    style: { color: '#000000', backgroundColor: '#85ea2d' },
+    style: { color: '#ffffff', backgroundColor: '#ffc107' },
     alt: '智'
   }, {
-    text: 'TDMS+DevAPI',
+    text: '血透API',
     url: 'http://dev.api.senruisoft.com/swagger/index.html',
     style: { color: '#ffffff', backgroundColor: '#134796' },
-    alt: 'TDMS+'
+    alt: 'TDMS'
   }, {
-    text: '腹透DevAPI',
+    text: '腹透API',
     url: 'http://pd-dev.api.senruisoft.com/swagger/index.html',
-    style: { color: '#f56a00', backgroundColor: '#fde3cf' },
+    style: { color: '#d4380d', backgroundColor: '#fff2e8' },
     alt: '腹'
   }, {
     text: '前端发布',
     url: 'http://139.196.191.60:8383/',
-    style: { color: '#ffffff', backgroundColor: '#104E8B' },
+    style: {color: '#096dd9', background: '#e6f7ff', border: '1px solid #91d5ff'},
     alt: '发布'
-  }]
+  }, {
+    text: '占位',
+    url: '',
+    style: { backgroundColor: '#dddddd' },
+    alt: '占'
+  }, {
+    text: '血透Pad',
+    url: 'http://dev.pad.senruisoft.com',
+    style: { color: '#c41d7f', backgroundColor: '#fff0f6' },
+    alt: '血透'
+  }, {
+    text: '血透Pc',
+    url: 'http://dev.pc.senruisoft.com',
+    style: { color: '#cf1322', backgroundColor: '#fff1f0' },
+    alt: 'PC'
+  }, {
+    text: '腹透Pad',
+    url: 'http://pd-dev.pad.senruisoft.com',
+    style: { color: '#d4380d', backgroundColor: '#fff2e8' },
+    alt: 'PD'
+  }],
+  
+  usualWebsite: [{ // 暂时没用
+    name: '测试阶段',
+    data: [{
+      text: 'angular zorro',
+      url: 'https://ng.ant.design/components/table/zh',
+    }, {
+      text: 'ionic',
+      url: 'https://ionicframework.com/docs/api',
+    }, {
+      text: '博客主页',
+      url: 'https://blog.csdn.net/xj932956499',
+    }, {
+      text: 'date-fns',
+      url: 'https://blog.csdn.net/fsxxzq521/article/details/85715213',
+    }, {
+      text: 'react antd',
+      url: 'https://ant.design/components/icon-cn/',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',
+    }, {
+      text: '测试',        
+    }]
+  },{
+    name: '公司',
+    data: [{
+      text: '智超Api',
+      url: 'http://172.16.1.84:8001/swagger/index.html',
+    }, {
+      text: 'TDMS+DevAPI',
+      url: 'http://dev.api.senruisoft.com/swagger/index.html',
+    }, {
+      text: '腹透DevAPI',
+      url: 'http://pd-dev.api.senruisoft.com/swagger/index.html',
+    }, {
+      text: '前端发布',
+      url: 'http://139.196.191.60:8383/',
+    }]
+  }
+  ]
 }

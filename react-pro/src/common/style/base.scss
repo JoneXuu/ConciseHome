@@ -1,8 +1,9 @@
 :root {
   /* 83a4d4 → #b6fbff */
-  --colTheme: #3dd03b;
+  --colTheme: #6fa366;
   --colBlue: #1890ff;
-  --colGradualTheme: linear-gradient(to bottom, var(--colTheme), #63d8b7);
+  --colGradualTheme: linear-gradient(45deg, #6fa366, #b2d88f);
+  // linear-gradient(45deg, #6fa366, #b2d88f, #a3c882, #518d59)
   --gMargin: 10px;
   --gMarginXL: 20px;
   --gRadius: 4px;
@@ -73,5 +74,8 @@ input:focus {
   }
   &.justBet {
     justify-content: space-between;
+  }
+  &.alignStart {
+    align-items: flex-start;
   }
 }

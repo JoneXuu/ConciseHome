@@ -13,7 +13,6 @@ var server = http_sys.createServer(function (inRequest, toResponse) {
     responseOK('能够ping通');
     return;
   }
-  
   // 遍历设置指定域名允许跨域
   // var orginList = [
   //   "http://www.zhangpeiyue.com",
@@ -22,41 +21,71 @@ var server = http_sys.createServer(function (inRequest, toResponse) {
   // if (orginList.includes(inRequest.headers.origin.toLowerCase())) {
   //   res.header("Access-Control-Allow-Origin", req.headers.origin);
   // }
-
-  const [requestUrl,requestParams] = inRequest.url.split('?');
-  const routerArr = requestUrl.split('/');  
-  const paramsObj = getParamsObj(requestParams);
-  console.log('有请求进入', requestUrl, paramsObj);
-  
-  // url.parse(requestUrl)
-  if (routerArr.length > 1) {
-    var [baseEmpty, firstRouter, secondRouter] = routerArr;
-    // console.log("接口进入", requestUrl, first);
-    if (firstRouter === 'test') {
-      responseOK('测试成功');
-    } else if (firstRouter === 'translate') {
-      getTranslate(paramsObj.text,res => {
-        responseOK(res);
-      })
+  try {
+    const [requestUrl, requestParams] = inRequest.url.split('?'); // 问号切割路由、参数
+    const routerArr = requestUrl.split('/');
+    const paramsObj = getParamsObj(requestParams); // get类请求的参数
+    let postObj = '';
+    inRequest.on('data', function (chunk) { // 监听到post类型请求参数
+      postObj = chunk;
+      if (/^\[|^\{/g.test(postObj)) {
+        postObj = JSON.parse(postObj);
+      }
+    });
+    if (routerArr.length > 1) { // 有路由
+      inRequest.on('end', function () { //error、finish
+        var [baseEmpty, firstRouter, secondRouter] = routerArr;
+        if (firstRouter === 'test') {
+          responseOK('测试成功');
+        } else if (firstRouter === 'translate') {
+          getTranslate(postObj.text, res => {
+            responseOK(res);
+          })
+        } else {
+          responseOK('未查询到接口' + firstRouter);
+        }
+      });
     } else {
-      responseOK('Node服务器访问成功');
+      responseError('访问出错');
     }
-  } else {
-    responseOK('Node服务器访问成功');
+    // console.log('有请求进入', requestUrl, paramsObj, postObj);
+    // url.parse(requestUrl)
+    
+  } catch (e) {
+    responseError(e)
   }
   // toResponse.end();
 }).listen(8888, function () {
-  console.log('服务启动---开始监听');
+  console.log('服务启动--开始监听');
 });
 
-function getParamsObj(str) {
+function getParamsObj(routerStr) {
   const paramsObj = {};
-  str.split('&').forEach(strQuery => {
-    const [key, val] = strQuery.split('=');
-    paramsObj[key] = decodeURIComponent(val);
-  });
+  if (routerStr) { // 有路由参数
+    routerStr.split('&').forEach(strQuery => {
+      const [key, val] = strQuery.split('=');
+      paramsObj[key] = decodeURIComponent(val);
+    });
+  }
   return paramsObj
 }
+function responseError(error, body = '内部错误') {
+  console.log('错误日志----', error);
+  globalResponse.writeHead(500, { 'Content-Type': 'text/html;charset=utf-8' });//设置response编码为utf-8
+  globalResponse.write(
+    `<h1>Node服务器连接成功</h1>
+    <div style="background-color: #efecec;
+      padding: 10px;
+    }"> ` +
+    JSON.stringify({
+      code: 500,
+      data: body,
+      message: error
+    }) +
+    `</div>`
+  );
+  globalResponse.end();
+};
 function responseOK(body) {
   globalResponse.writeHead(200, { 'Content-Type': 'text/html;charset=utf-8' });//设置response编码为utf-8
   globalResponse.write(JSON.stringify({
@@ -79,7 +108,7 @@ function toHttpRequest(reqUrl, reqData, met = 'get') {
     params: {}
   }
   if (met && met.toLocaleLowerCase() === 'get') {
-    axiosConfig.params = reqData;
+    axiosConfig.params = reqData; // 这里可能存在坑，空格变加号类似的，目前没必要处理
   } else {
     axiosConfig.data = reqData;
   }
@@ -95,7 +124,14 @@ function toHttpRequest(reqUrl, reqData, met = 'get') {
   })
 }
 
-function getTranslate(word,cb) {
+function getTranslate(word, cb) {
+  if (typeof (word) ==='undefined') {
+    cb({
+      origin: word,
+      result: '翻译内容为空'
+    });
+    return
+  }
   toHttpRequest('http://fanyi.youdao.com/translate', {
     type: 'auto',
     doctype: 'json',
